@@ -2,7 +2,7 @@
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-public class HelloWorld {
+public class DDAssistant {
 	public static void main(String[] args) {
 		//Lets make a window!
 		try{
@@ -15,7 +15,7 @@ public class HelloWorld {
 
 			@Override
 			public void run() {
-				new HelloWorldWindow().setVisible(true);
+				new DDAssistantWindow().setVisible(true);
 			}
 			
 		});

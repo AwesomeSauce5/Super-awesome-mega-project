@@ -14,7 +14,7 @@ import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.ui.ApplicationFrame;
 
-public class HelloWorldWindow extends ApplicationFrame{
+public class DDAssistantWindow extends ApplicationFrame{
 	
 	/**
 	 * 
@@ -78,7 +78,7 @@ public class HelloWorldWindow extends ApplicationFrame{
 		return xyCollect;
 		
 	}
-	public HelloWorldWindow(){
+	public DDAssistantWindow(){
 		super(title);
 		setSize(640, 480);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
