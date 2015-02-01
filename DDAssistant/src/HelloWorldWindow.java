@@ -63,7 +63,7 @@ public class HelloWorldWindow extends ApplicationFrame{
 		
 		return chart;
 	}
-	private XYDataset createTestDataset(){
+	private XYDataset createDataset(){
 		final LinkedList<Double> depth = new LinkedList<Double>();
 		final LinkedList<Double> width = new LinkedList<Double>();
 		XYSeriesCollection xyCollect = new XYSeriesCollection();
