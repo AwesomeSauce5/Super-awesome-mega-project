@@ -36,7 +36,7 @@ public class HelloWorldWindow extends ApplicationFrame{
 	}
 	
 	private JFreeChart createChart(XYDataset dataset){
-		final JFreeChart chart = ChartFactory.createXYLineChart("DDAssistant", "Depth", "Value", dataset, PlotOrientation.VERTICAL, false, false, false);
+		final JFreeChart chart = ChartFactory.createXYLineChart("DDAssistant", "Horizontal Distance", "Depth", dataset, PlotOrientation.VERTICAL, false, false, false);
 		
 		chart.setBackgroundPaint(Color.white);
 		final XYPlot plot = (XYPlot) chart.getPlot();
@@ -63,7 +63,7 @@ public class HelloWorldWindow extends ApplicationFrame{
 		
 		return chart;
 	}
-	private XYDataset createDataset(){
+	private XYDataset createTestDataset(){
 		final LinkedList<Double> depth = new LinkedList<Double>();
 		final LinkedList<Double> width = new LinkedList<Double>();
 		XYSeriesCollection xyCollect = new XYSeriesCollection();
