@@ -36,7 +36,7 @@ public class DDAssistantWindow extends ApplicationFrame{
 	}
 	
 	private JFreeChart createChart(XYDataset dataset){
-		final JFreeChart chart = ChartFactory.createXYLineChart("DDAssistant", "Horizontal Distance", "Depth", dataset, PlotOrientation.VERTICAL, false, false, false);
+		final JFreeChart chart = ChartFactory.createXYLineChart("DDAssistant", "Horizontal Distance", "Vertical Depth", dataset, PlotOrientation.VERTICAL, false, false, false);
 		
 		chart.setBackgroundPaint(Color.white);
 		final XYPlot plot = (XYPlot) chart.getPlot();
