@@ -23,7 +23,6 @@ public class DDAssistantWindow extends ApplicationFrame{
 	private static final String title = "DDAsistant";
 	
 	private XYDataset dataset;
-	//private CategoryDataset dataset;
 	private JFreeChart chart;
 	private ChartPanel chartPanel;
 	
@@ -36,42 +35,54 @@ public class DDAssistantWindow extends ApplicationFrame{
 	}
 	
 	private JFreeChart createChart(XYDataset dataset){
-		final JFreeChart chart = ChartFactory.createXYLineChart("DDAssistant", "Horizontal Distance", "Vertical Depth", dataset, PlotOrientation.VERTICAL, false, false, false);
+		JFreeChart chart;
+		XYPlot plot;
+		
+		chart = ChartFactory.createXYLineChart("DDAssistant", "Horizontal Distance", "Vertical Depth", dataset, PlotOrientation.VERTICAL, false, false, false);
+		plot = (XYPlot) chart.getPlot();
 		
 		chart.setBackgroundPaint(Color.white);
-		final XYPlot plot = (XYPlot) chart.getPlot();
 		plot.setDomainAxisLocation(AxisLocation.TOP_OR_LEFT);
+		plot.setDomainPannable(true);
+		plot.setRangePannable(true);
 		plot.setBackgroundPaint(Color.lightGray);
 		plot.setRangeGridlinePaint(Color.white);
 		
 		
-		/*final NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
-		rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
-		rangeAxis.setAutoRangeIncludesZero(true);*/
-		
-		
-		
-		
-		/*final LineAndShapeRenderer renderer = (LineAndShapeRenderer) plot.getRenderer();
-		
-		   renderer.setSeriesStroke(
-		            0, new BasicStroke(
-		                2.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND,
-		                1.0f, new float[] {10.0f, 6.0f}, 0.0f
-		            )
-		   );*/
-		
 		return chart;
 	}
-	private XYDataset createDataset(){
+	
+	/*private XYDataset createDataset(float KODepth, float landDepth, float landAngle){
+		return null;
+	}*/
+	
+	/*private void addSurvey(float inclination, float direction, float depth){
+		
+	}*/
+	
+	private XYDataset createDataset(/*int KODepth, int landDepth, int landAngle*/){
 		final LinkedList<Double> depth = new LinkedList<Double>();
 		final LinkedList<Double> width = new LinkedList<Double>();
 		XYSeriesCollection xyCollect = new XYSeriesCollection();
-		XYSeries series = new XYSeries("");
+		XYSeries series = new XYSeries("0");
+		XYSeries series0 = new XYSeries("1");
 		
-		for(int i = 0; i < 100; i++){
-			series.add(i * i, -i);
+		float KODepth = 6000;
+		float landDepth = 6300;
+		float landAngle = 90;
+		float totalDepth;
+		
+		
+		series.add(0, 0);
+		series.add(0, -KODepth);
+		
+		double y = 0;
+		for(int x = 0; x < landDepth - KODepth; x++){
+			y = Math.sqrt(Math.pow(landDepth - KODepth, 2) - Math.pow((x - (landDepth - KODepth)), 2)) + KODepth;
+			series.add(x, -y);
 		}
+		
+		series.add(6000, -y);
 		
 		
 		xyCollect.addSeries(series);
